@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js assignment 2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				color: #000;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #ffffff;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+				background-color: white;
+			}
+
+			a {
+				color: #0080ff;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - assignment 2 - webgl</div>
+		<script src="three.min.js"></script>
+		<script src="helperFns.js"></script>
+		<script src="OrbitControls.js"></script>
+		<script>
+
+			var container, stats;
+
+			var view, POV, scene, renderer;
+
+			var windowWidth, windowHeight;
+
+			view =
+				{
+					left: 0,
+					top: 0,
+					width: 0.5,
+					height: 1,
+					near:0.1,
+					far:10000,
+					background: new THREE.Color( 0, 0, 0 ),
+
+					eye: [ 40, 0, 40],
+					up: [ 0, 0, 1 ],
+					fov: 30,
+					
+					updateCamera: function ( camera, scene ) {
+						camera.lookAt(scene.position)
+					}
+				}
+
+			view2 = {
+					left: 0.5,
+					top: 0,
+					width: 0.5,
+					height: 1,
+					near:0.1,
+					far:10000,
+					background: new THREE.Color( 135/255, 206/255, 235/255 ),
+
+					eye: [ 0, 0, 0],
+					up: [ 0, 0, 1 ],
+					fov: 30,
+					
+					updateCamera: function ( camera, scene, ball ) {
+						camera.position.set(ball.position.x,ball.position.y,ball.position.z)
+						camera.lookAt(ball.position.clone().addScaledVector(ball.speed,deltaT))
+					}
+				}
+
+			init();
+
+
+		</script>
+	</body>
+</html>
