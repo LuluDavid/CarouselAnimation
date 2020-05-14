@@ -7,6 +7,10 @@ This project is a quick demonstration of how the inertial forces work in a non-i
 An overall view of a ball travelling inside a rotating structure, which is thus subject to the fictitious
 forces (Coriolis and centrifugal force).
 
+<p align="center">
+  <img src="./pictures/manege.png">
+</p>
+
 ## Right view
 
 A POV view inside the ball to imagine what it feels like (you could actually test it in France at the
