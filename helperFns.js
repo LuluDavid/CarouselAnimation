@@ -2,11 +2,11 @@
 
 function init() {
 	// parameters
-	rotationSpeed = 0.02
+	rotationSpeed = 0.05
 	carouselRadius = 10
 	edgeHeight = 3
 	ballSize = 1
-	initialSpeed = 5
+	initialSpeed = 10
 	deltaT = 1/60
 	rotationVector = (new THREE.Vector3(0,0,1) ).multiplyScalar(rotationSpeed);
 
@@ -160,7 +160,7 @@ function addASphere(size,clr,position,parentNode,shadows=true){
 
 function createCarousel(size,height,clr,parentNode){
 	let carouselGeometry = new THREE.CircleGeometry(size,32);
-	let texture = new THREE.TextureLoader().load( 'hypnose.jpg' );
+	let texture = new THREE.TextureLoader().load( 'textures/hypnose.jpg' );
 	let carouselMaterial = new THREE.MeshPhongMaterial({color:clr,map:texture});
 	let carousel = new THREE.Mesh(carouselGeometry,carouselMaterial);
 	carousel.position.set(0,0,0.01);
@@ -178,7 +178,7 @@ function createCarousel(size,height,clr,parentNode){
 
 function createGround(parentNode){
 	let groundGeometry = new THREE.PlaneGeometry(1000,1000)
-	let texture = new THREE.TextureLoader().load( 'herbe.jpg' );
+	let texture = new THREE.TextureLoader().load( 'textures/herbe.jpg' );
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.set( 20, 20 );
